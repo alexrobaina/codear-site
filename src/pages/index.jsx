@@ -5,9 +5,9 @@ import { BREAKPOINTS } from '../style/constants';
 import { CORE_MEMBERS, ROUTES } from '../data/constants';
 import { useLilac } from '../hooks';
 import { Calendar } from '../components/Calendar';
-import { Carousel } from '../components/Carousel';
-import communities from '../communities.json';
+import { Projects } from '../components/Projects';
 import projects from '../projects.json';
+import communities from '../communities.json';
 
 const CommunitiesSection = styled.section`
   display: flex;
@@ -86,47 +86,6 @@ const CommunitiesBanner = styled.div`
     width: 30rem;
     margin-top: 0;
     background: none;
-  }
-`;
-
-const ProjectsSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (max-width: ${BREAKPOINTS.hd}) {
-    margin-top: 50px;
-  }
-
-  @media (min-width: ${BREAKPOINTS.hd}) {
-    grid-area: projects;
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-`;
-
-const ProjectsCarousel = styled(Carousel)`
-  flex-grow: 1;
-  align-self: stretch;
-  margin: 2.5rem;
-`;
-
-const ProjectContainer = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-
-  p {
-    margin: 2rem 0;
-    font-family: Source Sans Pro, sans-serif;
-    color: var(--color-primary);
-    text-align: center;
-  }
-
-  img {
-    max-width: 150px;
   }
 `;
 
@@ -313,32 +272,7 @@ const Index = () => {
       <CalendarContainer>
         <Calendar name="próximos eventos" />
       </CalendarContainer>
-      <ProjectsSection>
-        <h1>proyectos</h1>
-        <ProjectsCarousel>
-          {projects.map(({
-            id, name, brandImage, description, cta,
-          }) => (
-            <ProjectContainer key={id}>
-              <a href={cta.href} rel="noopener noreferrer" target="_blank">
-                <img
-                  src={`/images/brand/${brandImage}`}
-                  alt={`Logo de ${name}`}
-                />
-              </a>
-              <p>{description}</p>
-              <lilac-button
-                href={cta.href}
-                target="_blank"
-                color="secondary"
-                inverted
-              >
-                {cta.title}
-              </lilac-button>
-            </ProjectContainer>
-          ))}
-        </ProjectsCarousel>
-      </ProjectsSection>
+      <Projects projects={projects} />
       <CommunitiesSection>
         <h1>
           <Link href={ROUTES.COMMUNITIES.page} as={ROUTES.COMMUNITIES.path}>
