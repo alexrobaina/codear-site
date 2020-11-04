@@ -1,5 +1,8 @@
 import React, {
-  useState, useRef, useCallback, useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -133,7 +136,9 @@ export const Carousel = ({ children, className }) => {
           ? React.Children.map(children, (child, i) => (
             <ChildContainer
               width={slideWidth}
-              key={i /* eslint-disable-line react/no-array-index-key */}
+              key={
+                  i /* eslint-disable-line react/no-array-index-key */
+                }
               aria-hidden={i === currentSlide ? 'false' : 'true'}
             >
               {child}

@@ -166,8 +166,8 @@ const UsSection = styled.section`
     grid-template-rows: min-content 1fr;
     grid-gap: 0 7rem;
     grid-template-areas:
-      "   title    photos"
-      "description photos";
+      '   title    photos'
+      'description photos';
     margin: 4rem 0;
 
     h1 {
@@ -210,10 +210,10 @@ const LandingContent = styled.main`
     display: grid;
     grid-template-columns: 1fr 53rem 27rem 1fr;
     grid-template-areas:
-      "     .       calendar    calendar        .     "
-      "     .       projects    projects        .     "
-      "communities communities communities communities"
-      "     .          us          us           .     ";
+      '     .       calendar    calendar        .     '
+      '     .       projects    projects        .     '
+      'communities communities communities communities'
+      '     .          us          us           .     ';
     ${CommunitiesSection} {
       grid-area: communities;
     }
@@ -275,12 +275,16 @@ const Index = () => {
       <Projects projects={projects} />
       <CommunitiesSection>
         <h1>
-          <Link href={ROUTES.COMMUNITIES.page} as={ROUTES.COMMUNITIES.path}>
+          <Link
+            href={ROUTES.COMMUNITIES.page}
+            as={ROUTES.COMMUNITIES.path}
+          >
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a>comunidades</a>
           </Link>
           <p>
-            Descubrí los programas y servicios que ofrecemos para tu comunidad.
+            Descubrí los programas y servicios que ofrecemos para tu
+            comunidad.
           </p>
         </h1>
         <CommunitiesBanner>

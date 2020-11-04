@@ -108,7 +108,12 @@ export const Projects = ({ projects }) => {
         <CardContainer>
           {projects.map(
             ({
-              name, brandImage, description, cta, imageWidth, id,
+              id,
+              cta,
+              name,
+              imageWidth,
+              brandImage,
+              description,
             }) => (
               <Card key={id}>
                 <ImageButton imageWidth={imageWidth}>
@@ -147,8 +152,4 @@ export const Projects = ({ projects }) => {
 
 Projects.propTypes = {
   projects: PropTypes.arrayOf([object]).isRequired,
-};
-
-Projects.defaultProps = {
-  projects: null,
 };
